@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "@/app/page";
-import HomePage from "@/app/Home/index";
+import HomePage from "@/app/Home/page";
 import { useRouter } from "next/navigation"; 
 
 export default function AppRoutes() {

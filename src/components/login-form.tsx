@@ -19,12 +19,11 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"div">) {
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState(""); // Alterado para "senha" ao invés de "password"
+  const [senha, setSenha] = useState(""); 
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const router = useRouter(); // Usando o useRouter do Next.js
-
+  const router = useRouter(); 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -33,14 +32,14 @@ export function LoginForm({
 
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/login`, // URL da API para login
+        `${process.env.NEXT_PUBLIC_API_URL}/login`, 
         {
           email,
-          senha, // Alterado para enviar o campo correto "senha"
+          senha, 
         },
         {
           headers: {
-            "Content-Type": "application/json", // Certificando-se de que o cabeçalho está correto
+            "Content-Type": "application/json", 
           },
         }
       );
@@ -51,7 +50,7 @@ export function LoginForm({
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
 
-      router.push("/home"); // Redirecionando para a página de home após o login
+      router.push("/Home");
 
     } catch (err: any) {
       if (err.response) {
